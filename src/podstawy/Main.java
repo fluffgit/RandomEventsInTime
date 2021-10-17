@@ -1,13 +1,12 @@
 package podstawy;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-
         long start = System.nanoTime();
         timeGen(start);
-
-
     }
 
     public static void timeGen(long start) throws InterruptedException {
@@ -18,13 +17,20 @@ public class Main {
     }
 
     public static void getRandomEfect(long start) throws InterruptedException {
-        long maximum = 900000000;
+
+        Scanner scanner = new Scanner(System.in);
+//        String option = scanner.nextLine();
+        long maximum = 900000;
         long minimum = 0;
         long number = ((long) (Math.random() * (maximum - minimum))) + minimum;
         switch ((int) number){
             case 1:
                 System.out.println("Głodny");
                 getTimeOfEvent(start);
+//                if(scanner.hasNextLine()){
+//                    System.out.println("nakarm");
+//
+//                }
                 sleep();
                 break;
             case 100:
@@ -65,5 +71,6 @@ public class Main {
         long elapsedTime = System.nanoTime() - start;
         double elapsedTimeInSecond = (double) elapsedTime / 1_000_000_000;
         System.out.println(elapsedTimeInSecond + " seconds");
+        //return true;
     }
 }
